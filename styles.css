@@ -41,3 +41,10 @@ canvas {
     opacity: 1;
     transform: scale(1.2);
 }
+
+@media (min-width: 640px) {
+    #h1 {
+        font-size: 5em;
+        text-align: right;
+    }
+}
