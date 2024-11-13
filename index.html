@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Osman Bin Nasir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-900 text-white relative">
+    <canvas id="draw" class="fixed top-0 left-0 w-full h-full"></canvas>
+
+    <div class="relative z-10">
+        <header id="header">
+            <div class="p-8">
+                <!-- I know I should not use br but i am still using it  -->
+                <h1 id="h1" class="text-4xl md:text-6xl font-bold mb-4"><br><br><br>Osman Bin Nasir</h1>
+                <p class="text-lg md:text-xl mb-6">A Front End Developer</p>
+                <div id="links" class="flex space-x-4 justify-end text-3xl">
+                    <a href="https://www.linkedin.com/in/osman-bin-nasir/" target="_blank" rel="noopener noreferrer"
+                        class="links text-blue-500 transition duration-300 hover:text-blue-300 hover:scale-110">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Osman-bin-nasir" target="_blank" rel="noopener noreferrer"
+                        class="links text-gray-300 transition duration-300 hover:text-gray-100 hover:scale-110">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:osmanbinnasir18@gmail.com"
+                        class="links text-red-400 transition duration-300 hover:text-red-200 hover:scale-110">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+        </header>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
