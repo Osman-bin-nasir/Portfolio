@@ -1,2 +1,337 @@
-body { margin: 0; overflow: hidden; }
-canvas { display: block; }
+/* Box-Sizing Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #fff;
+}
+
+/* Navbar padding tweak */
+body {
+  padding-top: 56px; /* height of navbar */
+}
+
+/* Fullscreen Overlay */
+#cube-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* Canvas */
+canvas#draw {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+canvas#draw.hide-cube {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Intro Text */
+.intro-text {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.intro-text.hide {
+  opacity: 0;
+}
+
+/* Click Hint */
+.hint {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hint.show {
+  opacity: 1;
+}
+
+/* Main site hide until intro ends */
+.hidden {
+  display: none;
+}
+
+/* Dim background during zoom */
+#cube-overlay.dim {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Scroll-to-Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 1050;
+  border-radius: 50%;
+  padding: 10px 15px;
+  background-color: #e01e5a;
+  border: none;
+}
+
+#scrollTopBtn:hover {
+  background-color: #c21850;
+}
+
+/* Navbar */
+.navbar-dark {
+  background-color: black !important;
+}
+
+.navbar-brand, .nav-link {
+  color: #fff !important;
+}
+
+.nav-link:hover {
+  color: #e01e5a !important;
+}
+
+/* Hero Layout */
+.hero {
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+.hero-content {
+  flex: 1 1 350px;
+  max-width: 1000px;
+  padding: 2rem;
+}
+
+.hero-canvas {
+  flex: 1 1 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* background-color: #1d7ed0; */
+  height: 100%;
+}
+
+/* Profile Frame & Picture */
+.profile-frame {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  padding: 5px;
+  background: linear-gradient(135deg, #e01e5a, #339cff);
+  border-radius: 20px;
+}
+
+/* Flip Animation Container */
+.toggle-img {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Profile Pictures */
+.toggle-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.toggle-img {
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Front Image */
+.toggle-img .front-img {
+  position: absolute;
+  z-index: 2;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Back Image */
+.toggle-img .back-img {
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Flip Effect When Clicked */
+.toggle-img.flipped .front-img {
+  transform: rotateY(180deg);
+}
+
+.toggle-img.flipped .back-img {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* Optional: Add scale effect on hover */
+.toggle-img:hover {
+  transform: scale(1.05);
+}
+
+/* Hero Text */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn-featured {
+  background: #e01e5a;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  color: #fff;
+}
+
+.btn-featured:hover {
+  background: #c21850;
+  color: #fff;
+}
+
+.btn-contact {
+  background: #339cff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  color: #fff;
+}
+
+.btn-contact:hover {
+  background: #1d7ed0;
+  color: #fff;
+}
+
+/* Section Headings */
+section h2 {
+  color: #fff;
+}
+
+/* Coming Soon Animation */
+.coming-soon {
+  padding: 2rem;
+}
+
+.coming-soon h3 {
+  font-size: 2.5rem;
+  color: #e01e5a;
+}
+
+.coming-soon p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Tech Stack Icons */
+.tech-icon {
+  transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+.text-express {
+  color: #68A063;
+}
+
+.text-mongodb {
+  color: #47A248;
+}
+
+/* Footer */
+footer {
+  background-color: black;
+}
+
+@media (max-width: 955px){
+  .btn-featured,
+  .btn-contact {
+    padding: 0.9rem 0.9rem; 
+    font-size: 1rem;  
+    text-align: center;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Adds space between buttons */
+}
+}
+
+@media (max-width: 487px){
+  .btn-featured,
+  .btn-contact {
+    padding: 0.5rem 0.6rem; 
+    font-size: 0.9rem;  
+    text-align: center;
+}
+.hero-title{
+  font-size: 2.5rem;
+}
+.hero-subtitle {
+  font-size: 1.3rem;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Adds space between buttons */
+}
+}
