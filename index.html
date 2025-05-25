@@ -9,6 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!--only for vs icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -58,7 +60,7 @@
           <div class="col-12 col-lg-6 d-flex justify-content-center mb-4 mb-lg-0">
             <div class="profile-frame toggle-img">
               <img src="osman_profile.jpeg" alt="Osman's Profile" class="profile-pic front-img" />
-              <img src="osman_anime_resized.png" alt="Osman's Anime Profile" class="profile-pic back-img" />
+              <img src="osman_sunglasses.png" alt="Osman's Anime Profile" class="profile-pic back-img" />
             </div>
           </div>
     
@@ -130,8 +132,8 @@
               <div class="card h-1A00">
                 <div class="card-body d-flex flex-column justify-content-between">
                   <h5 class="card-title">Tic-Tac-Toe Game</h5>
-                  <p class="card-text">A simple yet fun mini-game of Tic-Tac-Toe with a polished interface. Play against a friend!</p>
-                  <small class="text-muted">HTML, CSS, JavaScript</small>
+                  <p class="card-text">It features a clean, polished interface designed for intuitive gameplay, making it perfect for a quick, friendly match against a friend right on your device </p>
+                  <small class="texts-muted">HTML, CSS, JavaScript</small>
                   <a href="https://osman-bin-nasir.github.io/Tic-Tac-Toe/" target="_blank" class="btn btn-outline-light mt-3">Play Now</a>
                 </div>
               </div>
@@ -143,7 +145,7 @@
               <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">TV Show Search</h5>
                 <p class="card-text">Responsive web app to search and display TV shows using the TVMaze API. Features hover overlays and show details like name and release date.</p>
-                <small class="text-muted">HTML, CSS, JS, Bootstrap, Axios</small>
+                <small class="texts-muted">HTML, CSS, JS, Bootstrap, Axios</small>
                 <a href="https://github.com/Osman-bin-nasir/TV-Show-Search" target="_blank" class="btn btn-outline-light mt-3">View Project</a>
               </div>
             </div>
@@ -155,7 +157,7 @@
               <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">Samsung-style Calculator</h5>
                 <p class="card-text">A clean, fully-functional calculator designed to look like the one on Samsung phones. Responsive and intuitive.</p>
-                <small class="text-muted">HTML, CSS, JavaScript</small>
+                <small class="texts-muted">HTML, CSS, JavaScript</small>
                 <a href="https://osman-bin-nasir.github.io/Calculator/" target="_blank" class="btn btn-outline-light mt-3">View Project</a>
               </div>
             </div>
@@ -170,20 +172,45 @@
     </section>
     
 
-    <!-- Tech Stack -->
-    <section id="tech" class="text-center py-5 black text-white">
-      <h2 class="display-5 fw-bold mb-5">Tech Stack</h2>
-      <div class="d-flex flex-wrap justify-content-center gap-4 fs-1">
-        <i class="fab fa-html5 text-warning tech-icon" data-bs-toggle="tooltip" title="HTML"></i>
-        <i class="fab fa-css3-alt text-primary tech-icon" data-bs-toggle="tooltip" title="CSS"></i>
+ <!-- Tech Stack Section -->
+<section id="tech" class="text-center py-5 bg-black text-white">
+  <h2 class="display-5 fw-bold mb-5">Tech Stack</h2>
+
+  <div class="container text-start">
+    <!-- Frontend -->
+    <div class="mb-5">
+      <h4 class="text-info mb-4 border-bottom border-info pb-2">Frontend</h4>
+      <div class="d-flex flex-wrap gap-5 fs-1 justify-content-center justify-content-md-start">
+        <i class="fab fa-html5 text-warning tech-icon" data-bs-toggle="tooltip" title="HTML5"></i>
+        <i class="fab fa-css3-alt text-primary tech-icon" data-bs-toggle="tooltip" title="CSS3"></i>
         <i class="fab fa-js text-warning tech-icon" data-bs-toggle="tooltip" title="JavaScript"></i>
-        <i class="fab fa-bootstrap text-purple tech-icon" data-bs-toggle="tooltip" title="Bootstrap"></i>
-        <i class="fab fa-git-alt text-danger tech-icon" data-bs-toggle="tooltip" title="Git"></i>
+        <i class="fab fa-bootstrap text-purple tech-icon" data-bs-toggle="tooltip" title="Bootstrap 5"></i>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="mb-5">
+      <h4 class="text-success mb-4 border-bottom border-success pb-2">Backend</h4>
+      <div class="d-flex flex-wrap gap-5 fs-1 justify-content-center justify-content-md-start">
         <i class="fab fa-node text-success tech-icon" data-bs-toggle="tooltip" title="Node.js"></i>
         <i class="fas fa-server text-express tech-icon" data-bs-toggle="tooltip" title="Express.js"></i>
         <i class="fab fa-envira text-mongodb tech-icon" data-bs-toggle="tooltip" title="MongoDB"></i>
       </div>
-    </section>
+    </div>
+
+    <!-- Tools & Version Control -->
+    <div class="mb-5">
+      <h4 class="text-warning mb-4 border-bottom border-warning pb-2">Tools</h4>
+      <div class="d-flex flex-wrap gap-5 fs-1 justify-content-center justify-content-md-start">
+        <i class="fab fa-git-alt text-danger tech-icon" data-bs-toggle="tooltip" title="Git"></i>
+        <i class="fab fa-github text-white tech-icon" data-bs-toggle="tooltip" title="GitHub"></i>
+        <i class="fab fa-npm text-npm tech-icon" data-bs-toggle="tooltip" title="npm"></i>
+        <i class="fas fa-terminal text-terminal tech-icon" data-bs-toggle="tooltip" title="CLI"></i>
+        <i class="devicon-vscode-plain colored tech-icon" title="VS Code"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="text-center py-5 black text-white">

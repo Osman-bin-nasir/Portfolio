@@ -395,3 +395,112 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleImg.classList.toggle('flipped');
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Theme management
+  const body = document.body;
+  
+  // Set initial theme
+  if (!body.getAttribute('data-theme')) {
+    body.setAttribute('data-theme', 'dark');
+  }
+  
+  // Toggle theme function
+  function toggleTheme() {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    // Add transition class for smooth theme change
+    body.classList.add('theme-transition');
+    
+    // Change theme
+    body.setAttribute('data-theme', newTheme);
+    
+    // Store preference in localStorage (optional)
+    localStorage.setItem('preferred-theme', newTheme);
+    
+    // Remove transition class after animation
+    setTimeout(() => {
+      body.classList.remove('theme-transition');
+    }, 500);
+    
+    // Optional: Play a subtle sound effect
+    playThemeToggleSound();
+  }
+  
+  // Load saved theme preference
+  function loadThemePreference() {
+    const savedTheme = localStorage.getItem('preferred-theme');
+    if (savedTheme && savedTheme !== body.getAttribute('data-theme')) {
+      body.setAttribute('data-theme', savedTheme);
+    }
+  }
+  
+  // Optional: Add subtle sound effect for theme toggle
+  function playThemeToggleSound() {
+    // Create a subtle click sound
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+    oscillator.frequency.setValueAtTime(400, audioContext.currentTime + 0.1);
+    
+    gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime + 0.01);
+    gainNode.gain.setValueAtTime(0, audioContext.currentTime + 0.1);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.1);
+  }
+  
+  // Enhance existing profile picture click handler
+  const existingToggleImg = document.querySelector('.toggle-img');
+  if (existingToggleImg) {
+    // Remove existing click listener and add enhanced one
+    const newToggleImg = existingToggleImg.cloneNode(true);
+    existingToggleImg.parentNode.replaceChild(newToggleImg, existingToggleImg);
+    
+    newToggleImg.addEventListener('click', function(e) {
+      // First, handle the existing flip animation
+      newToggleImg.classList.toggle('flipped');
+      
+      // Then, toggle the theme after a short delay
+      setTimeout(() => {
+        toggleTheme();
+      }, 300);
+    });
+  }
+  
+  // Optional: Add keyboard shortcut (Ctrl/Cmd + Shift + T)
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+  
+  // Initialize theme icon and load preferences
+  updateThemeIcon();
+  loadThemePreference();
+  
+  // Optional: Add theme indicator click functionality
+  const themeIndicator = document.getElementById('theme-indicator');
+  if (themeIndicator) {
+    themeIndicator.addEventListener('click', toggleTheme);
+    themeIndicator.style.cursor = 'pointer';
+    themeIndicator.title = 'Toggle theme (or click profile picture)';
+  }
+  
+  // Add smooth transition class to CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    .theme-transition * {
+      transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease !important;
+    }
+  `;
+  document.head.appendChild(style);
+});

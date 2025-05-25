@@ -11,6 +11,10 @@ html, body {
   font-family: Arial, sans-serif;
   background-color: black;
   color: #fff;
+  html, body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  
 }
 
 /* Navbar padding tweak */
@@ -156,69 +160,62 @@ canvas#draw.hide-cube {
   padding: 5px;
   background: linear-gradient(135deg, #e01e5a, #339cff);
   border-radius: 20px;
+  transition: transform 0.6s ease;
 }
 
-/* Flip Animation Container */
+/* Flip Animation Container *//* Toggle Container */
 .toggle-img {
   position: relative;
   width: 450px;
   height: 450px;
-  perspective: 1000px;
   cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-/* Profile Pictures */
+/* Profile Images Base Style */
 .toggle-img img {
   position: absolute;
   top: 0;
   left: 0;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease;
-  border-radius: 15px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 15px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.toggle-img {
-  position: relative;
-  perspective: 1000px;
-  cursor: pointer;
-  transition: transform 0.3s;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease;
+  z-index: 1;
 }
 
 /* Front Image */
 .toggle-img .front-img {
-  position: absolute;
   z-index: 2;
-  transform: rotateY(0deg);
-  backface-visibility: hidden;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateX(0%);
 }
 
-/* Back Image */
-.toggle-img .back-img {
-  position: absolute;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Flip Effect When Clicked */
+/* When Flipped - Back Image comes in */
 .toggle-img.flipped .front-img {
-  transform: rotateY(180deg);
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
 }
 
 .toggle-img.flipped .back-img {
-  transform: rotateY(0deg);
+  opacity: 1;
+  transform: translateX(0%);
   z-index: 2;
 }
 
 /* Optional: Add scale effect on hover */
 .toggle-img:hover {
   transform: scale(1.05);
+
 }
+
+
 
 /* Hero Text */
 .hero-title {
@@ -351,26 +348,258 @@ section h2 {
   font-size: 1.2em;
 }
 
-/* Tech Stack Icons */
+#tech {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding-top: 80px; 
+  padding-bottom: 40px;
+
+}
+/* --- Individual Tech Icon Styling --- */
 .tech-icon {
-  transition: transform 0.3s ease;
+  font-size: 2.5rem; 
+  padding: 15px;  
+  border-radius: 12px; 
+  background: rgba(255, 255, 255, 0.05); 
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease; 
+  cursor: pointer;
+  position: relative; 
+  margin: 10px; 
 }
 
 .tech-icon:hover {
-  transform: scale(1.2);
+  transform: translateY(-5px) scale(1.15);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); 
 }
 
-.text-express {
-  color: #68A063;
-}
+.text-purple { color: #7952b3; }    
+.text-express { color: #68A063; }  
+.text-mongodb { color: #47A248; }   
+.text-npm { color: #cb3837; }       
+.text-terminal { color: #4D4D4D; }  
+.text-vscode { color: #007acc; }    
 
-.text-mongodb {
-  color: #47A248;
-}
+.tech-icon:hover.fa-html5                 { color: #e34f26; } 
+.tech-icon:hover.fa-css3-alt              { color: #2965f1; } 
+.tech-icon:hover.fa-js                    { color: #f7df1e; } 
+.tech-icon:hover.fa-bootstrap             { color: #7952b3; }
+.tech-icon:hover.fa-node                  { color: #68A063; } 
+.tech-icon:hover.fa-envira                { color: #47A248; } 
+.tech-icon:hover.fa-git-alt               { color: #f14e32; } 
+.tech-icon:hover.fa-github                { color: #6e5494; } 
+.tech-icon:hover.fa-npm                   { color: #cb3837; } 
+.tech-icon:hover.fa-terminal              { color: #bbbbbb; } 
+.tech-icon:hover.devicon-vscode-plain     { color: #007acc; } 
 
 /* Footer */
 footer {
   background-color: black;
+}
+
+/* Light Mode Theme Toggle Styles */
+
+/* Light Mode Styles */
+[data-theme="light"] {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+/* Navbar Light Mode */
+[data-theme="light"] .navbar-dark {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .navbar-brand,
+[data-theme="light"] .nav-link {
+  color: #333333 !important;
+}
+
+[data-theme="light"] .nav-link:hover {
+  color: #e01e5a !important;
+}
+
+/* Hero Section Light Mode */
+[data-theme="light"] .hero {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+[data-theme="light"] .hero-title,
+[data-theme="light"] .hero-subtitle {
+  color: #333333 !important;
+}
+
+/* About Section Light Mode */
+[data-theme="light"] #about {
+  background-color: #f8f9fa !important;
+  color: #333333 !important;
+}
+
+[data-theme="light"] .about-container,
+[data-theme="light"] .education-container {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .edu-step {
+  background: #f8f9fa !important;
+  color: #333333 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .edu-step:hover {
+  background-color: #e9ecef !important;
+  box-shadow: 4px 4px 15px rgba(224, 30, 90, 0.3);
+}
+
+[data-theme="light"] .education-ladder {
+  border-left: 4px solid #e01e5a;
+}
+
+/* Projects Section Light Mode */
+[data-theme="light"] .projects-section {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+[data-theme="light"] .projects-section h2 {
+  color: #333333 !important;
+}
+
+[data-theme="light"] .projects-section .card {
+  background-color: #f8f9fa !important;
+  color: #333333 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .projects-section .card:hover {
+  box-shadow: 4px 4px 20px rgba(224, 30, 90, 0.3);
+}
+
+[data-theme="light"] .projects-section .btn-outline-light {
+  border: 2px solid #333333;
+  color: #333333;
+}
+
+[data-theme="light"] .projects-section .btn-outline-light:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+[data-theme="light"] .coming-soon-message {
+  color: #333333 !important;
+}
+
+[data-theme="light"] .coming-soon-message:hover {
+  box-shadow: 4px 4px 15px rgba(224, 30, 90, 0.3);
+}
+
+/* Tech Stack Light Mode */
+[data-theme="light"] #tech {
+  background-color: #f8f9fa !important;
+  color: #333333 !important;
+}
+
+[data-theme="light"] #tech h2,
+[data-theme="light"] #tech h4 {
+  color: #333333 !important;
+}
+
+/* [data-theme="light"] .tech-icon {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #333333 !important;
+} */
+
+[data-theme="light"] .border-info {
+  border-color: #17a2b8 !important;
+}
+
+[data-theme="light"] .border-success {
+  border-color: #28a745 !important;
+}
+
+[data-theme="light"] .border-warning {
+  border-color: #ffc107 !important;
+}
+
+/* Contact Section Light Mode */
+[data-theme="light"] #contact {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+[data-theme="light"] #contact h2,
+[data-theme="light"] #contact p {
+  color: #333333 !important;
+}
+
+[data-theme="light"] #contact .text-primary {
+  color: #0d6efd !important;
+}
+
+[data-theme="light"] #contact .text-white {
+  color: #333333 !important;
+}
+
+[data-theme="light"] #contact .text-danger {
+  color: #dc3545 !important;
+}
+
+/* Footer Light Mode */
+[data-theme="light"] footer {
+  background-color: #f8f9fa !important;
+  color: #333333 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll Button Light Mode */
+[data-theme="light"] #scrollTopBtn {
+  background-color: #e01e5a !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Headings Light Mode */
+[data-theme="light"] section h2 {
+  color: #333333 !important;
+}
+
+/* Cube Overlay Light Mode */
+[data-theme="light"] #cube-overlay {
+  background-color: #ffffff !important;
+}
+
+[data-theme="light"] .intro-text {
+  color: #333333 !important;
+}
+
+[data-theme="light"] .hint {
+  color: #666666 !important;
+}
+
+/* Smooth transitions for theme changes */
+body,
+.navbar-dark,
+.hero,
+#about,
+.about-container,
+.education-container,
+.projects-section,
+#tech,
+#contact,
+footer
+{
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease !important;
+}
+
+/* Hero Canvas adjustment for light mode */
+[data-theme="light"] .hero-canvas {
+  opacity: 0.8;
 }
 
 @media (max-width: 955px){
