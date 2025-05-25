@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <!-- Cube Intro Overlay -->
   <div id="cube-overlay">
@@ -49,44 +51,124 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero d-flex align-items-center black">
-      <div class="hero-content text-white">
-        <div class="profile-frame mb-4 toggle-img">
-          <img src="osman_profile.jpeg" alt="Osman's Profile" class="profile-pic front-img" />
-          <img src="osman_anime_resized.png" alt="Osman's Anime Profile" class="profile-pic back-img" />
-        </div>
-        <h1 class="hero-title">Hello! I'm Osman</h1>
-        <h2 class="hero-subtitle">Aspiring Full-Stack Developer</h2>
-        <div class="mt-4" class="button-container">
-          <a href="#projects" class="btn btn-lg btn-featured me-3">Explore My Work</a>
-          <a href="#contact" class="btn btn-lg btn-contact">Get in Touch</a>
+    <section id="home" class="hero d-flex align-items-center justify-content-center text-white">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center text-center text-lg-start">
+          <!-- Left: Image -->
+          <div class="col-12 col-lg-6 d-flex justify-content-center mb-4 mb-lg-0">
+            <div class="profile-frame toggle-img">
+              <img src="osman_profile.jpeg" alt="Osman's Profile" class="profile-pic front-img" />
+              <img src="osman_anime_resized.png" alt="Osman's Anime Profile" class="profile-pic back-img" />
+            </div>
+          </div>
+    
+          <!-- Right: Text and Buttons -->
+          <div class="col-12 col-lg-6">
+            <h1 class="hero-title">Hello! I'm Osman</h1>
+            <h2 class="hero-subtitle">Aspiring Full-Stack Developer</h2>
+            <div class="button-container mt-4 d-flex flex-column flex-md-row justify-content-center justify-content-lg-start gap-3">
+              <a href="#projects" class="btn btn-lg btn-featured">Explore My Work</a>
+              <a href="#contact" class="btn btn-lg btn-contact">Get in Touch</a>
+            </div>
+          </div>
         </div>
       </div>
+    
+      <!-- Optional: Floating Canvas -->
       <div class="hero-canvas">
         <canvas id="heroCanvas"></canvas>
       </div>
     </section>
+    
 
     <!-- About Section -->
     <section id="about" class="text-center py-5 black text-white">
-      <div class="container">
+      <div class="about-container">
         <h2 class="display-5 fw-bold mb-4">About Me</h2>
-        <p class="lead px-5">
-          I'm a passionate student and aspiring full-stack developer with a keen interest in building innovative web applications. I enjoy learning new technologies and tackling challenging projects to enhance my skills.
+        <p>
+          <p>Hi! I'm Osman Bin Nasir, a second-year Computer Science and Engineering student at MJCET with a strong interest in software development and machine learning. I enjoy exploring how technology can solve real-world problems and make everyday systems more efficient.</p>
+
+          <p>I am currently focused on sharpening my skills in programming, backend development, and data analysis. I'm familiar with languages like Java and C, and I work with tools and frameworks including HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB.</p>
+
+          <p>I am always eager to learn new technologies, collaborate with others, and grow as a developer.</p>
         </p>
       </div>
+      <section class="education-container" class="text-center py-5 black text-white">
+        <div class="container">
+          <h2 class="display-5 fw-bold mb-4">Education</h2>
+          <div class="education-ladder d-flex flex-column align-items-center">
+            <div class="edu-step">
+              <h5>Muffakham Jah College of Engineering & Technology</h5>
+              <p>B.Tech in Computer Science Engineering (2023 - 2027)</p>
+              <p><strong>CGPA:</strong> 8.95</p>
+            </div>
+            <div class="edu-line"></div>
+            <div class="edu-step">
+              <h5>MS Junior College</h5>
+              <p>MPC (2021 - 2023)</p>
+              <p><strong>Grade:</strong> 92.5%</p>
+            </div>
+            <div class="edu-line"></div>
+            <div class="edu-step">
+              <h5>Madina Public School</h5>
+              <p>(2020 - 2021)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 black text-white">
+    <section id="projects" class="projects-section d-flex align-items-center">
       <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-5">Projects</h2>
-        <div class="coming-soon">
-          <h3 class="animate__animated animate__pulse animate__infinite">Exciting Projects Coming Soon!</h3>
-          <p>Stay tuned for my upcoming work, showcasing innovative solutions and creative designs.</p>
+        <h2 class="mb-5">My Projects</h2>
+        <div class="row justify-content-center">
+
+            <!-- Tic-Tac-Toe -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-1A00">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <h5 class="card-title">Tic-Tac-Toe Game</h5>
+                  <p class="card-text">A simple yet fun mini-game of Tic-Tac-Toe with a polished interface. Play against a friend!</p>
+                  <small class="text-muted">HTML, CSS, JavaScript</small>
+                  <a href="https://osman-bin-nasir.github.io/Tic-Tac-Toe/" target="_blank" class="btn btn-outline-light mt-3">Play Now</a>
+                </div>
+              </div>
+            </div>
+    
+          <!-- TV Show Search -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title">TV Show Search</h5>
+                <p class="card-text">Responsive web app to search and display TV shows using the TVMaze API. Features hover overlays and show details like name and release date.</p>
+                <small class="text-muted">HTML, CSS, JS, Bootstrap, Axios</small>
+                <a href="https://github.com/Osman-bin-nasir/TV-Show-Search" target="_blank" class="btn btn-outline-light mt-3">View Project</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Calculator -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title">Samsung-style Calculator</h5>
+                <p class="card-text">A clean, fully-functional calculator designed to look like the one on Samsung phones. Responsive and intuitive.</p>
+                <small class="text-muted">HTML, CSS, JavaScript</small>
+                <a href="https://osman-bin-nasir.github.io/Calculator/" target="_blank" class="btn btn-outline-light mt-3">View Project</a>
+              </div>
+            </div>
+          </div>
+
         </div>
+    
+        <p class="mt-5 coming-soon-message">
+          ⚡ More <span class="highlight-words">crazy projects</span> coming soon... Stay tuned!
+        </p>
       </div>
     </section>
+    
 
     <!-- Tech Stack -->
     <section id="tech" class="text-center py-5 black text-white">
@@ -109,7 +191,8 @@
         <h2 class="display-5 fw-bold mb-4">Contact Me</h2>
         <p class="mb-4">Connect with me through social media or email:</p>
         <div class="d-flex justify-content-center gap-4 fs-3">
-          <a href="https://www.linkedin.com/in/osman-bin-nasir/" class="text-primary"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/osman-bin-nasir/" class="text-primary"><i
+              class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/Osman-bin-nasir/" class="text-white"><i class="fab fa-github"></i></a>
           <a href="mailto:osmanbinasir18@gmail.com" class="text-danger"><i class="fas fa-envelope"></i></a>
         </div>
@@ -124,11 +207,12 @@
 
   <!-- Audio Elements -->
   <audio id="shuffleSound" src="shuffle.mp3" preload="auto"></audio>
-  <audio id="solveSound"   src="solve.mp3"   preload="auto"></audio>
-  <audio id="zoomSound"    src="zoom.mp3"    preload="auto"></audio>
+  <audio id="solveSound" src="solve.mp3" preload="auto"></audio>
+  <audio id="zoomSound" src="zoom.mp3" preload="auto"></audio>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="script.js"></script>
 </body>
+
 </html>
