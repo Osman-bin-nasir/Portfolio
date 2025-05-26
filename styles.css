@@ -1,28 +1,62 @@
-/* Box-Sizing Reset */
+:root {
+  --primary-color: #e01e5a;
+  --secondary-color: #339cff;
+  --accent-color: #00d4aa;
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #cccccc;
+  --text-muted-dark: #999999;
+  --bg-card-dark: #1c1c1c;
+  --bg-main-dark: #000000;
+  --border-color-dark: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(135deg, #e01e5a, #c21850);
+  --box-shadow-dark: 0 10px 20px rgba(0,0,0,0.2);
+  --transition-main: all 0.3s ease;
+
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --text-muted: var(--text-muted-dark);
+  --bg-card: var(--bg-card-dark);
+  --bg-main: var(--bg-main-dark);
+  --border-color: var(--border-color-dark);
+  --box-shadow: var(--box-shadow-dark);
+}
+
+[data-theme="light"] {
+  --text-primary-light: #333333;
+  --text-secondary-light: #555555;
+  --text-muted-light: #777777;
+  --bg-card-light: #ffffff;
+  --bg-main-light: #ffffff;
+  --border-color-light: rgba(0, 0, 0, 0.1);
+  --box-shadow-light: 0 10px 20px rgba(0,0,0,0.1);
+
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-muted: var(--text-muted-light);
+  --bg-card: var(--bg-card-light);
+  --bg-main: var(--bg-main-light);
+  --border-color: var(--border-color-light);
+  --box-shadow: var(--box-shadow-light);
+}
+
 * {
   box-sizing: border-box;
 }
 
-/* Base Styles */
 html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
   font-family: Arial, sans-serif;
-  background-color: black;
-  color: #fff;
-  html, body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   transition: background-color 0.4s ease, color 0.4s ease;
-  }
-  
 }
 
-/* Navbar padding tweak */
 body {
-  padding-top: 56px; /* height of navbar */
+  padding-top: 56px;
 }
 
-/* Fullscreen Overlay */
 #cube-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -40,7 +74,6 @@ body {
   display: none !important;
 }
 
-/* Canvas */
 canvas#draw {
   width: 100%;
   height: 100%;
@@ -53,7 +86,6 @@ canvas#draw.hide-cube {
   pointer-events: none;
 }
 
-/* Intro Text */
 .intro-text {
   position: absolute;
   top: 10%;
@@ -69,7 +101,6 @@ canvas#draw.hide-cube {
   opacity: 0;
 }
 
-/* Click Hint */
 .hint {
   position: absolute;
   bottom: 10%;
@@ -85,17 +116,14 @@ canvas#draw.hide-cube {
   opacity: 1;
 }
 
-/* Main site hide until intro ends */
 .hidden {
   display: none;
 }
 
-/* Dim background during zoom */
 #cube-overlay.dim {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Scroll-to-Top Button */
 #scrollTopBtn {
   position: fixed;
   bottom: 20px;
@@ -112,7 +140,6 @@ canvas#draw.hide-cube {
   background-color: #c21850;
 }
 
-/* Navbar */
 .navbar-dark {
   background-color: black !important;
 }
@@ -125,7 +152,6 @@ canvas#draw.hide-cube {
   color: #e01e5a !important;
 }
 
-/* Hero Layout */
 .hero {
   height: calc(100vh - 56px);
   display: flex;
@@ -152,7 +178,6 @@ canvas#draw.hide-cube {
   z-index: 10;
 }
 
-/* Profile Frame & Picture */
 .profile-frame {
   width: 450px;
   height: 450px;
@@ -163,7 +188,6 @@ canvas#draw.hide-cube {
   transition: transform 0.6s ease;
 }
 
-/* Flip Animation Container *//* Toggle Container */
 .toggle-img {
   position: relative;
   width: 450px;
@@ -173,7 +197,6 @@ canvas#draw.hide-cube {
   transition: transform 0.3s ease;
 }
 
-/* Profile Images Base Style */
 .toggle-img img {
   position: absolute;
   top: 0;
@@ -189,14 +212,12 @@ canvas#draw.hide-cube {
   z-index: 1;
 }
 
-/* Front Image */
 .toggle-img .front-img {
   z-index: 2;
   opacity: 1;
   transform: translateX(0%);
 }
 
-/* When Flipped - Back Image comes in */
 .toggle-img.flipped .front-img {
   opacity: 0;
   transform: translateX(-100%);
@@ -209,15 +230,10 @@ canvas#draw.hide-cube {
   z-index: 2;
 }
 
-/* Optional: Add scale effect on hover */
 .toggle-img:hover {
   transform: scale(1.05);
-
 }
 
-
-
-/* Hero Text */
 .hero-title {
   font-size: 3.5rem;
   font-weight: bold;
@@ -230,7 +246,6 @@ canvas#draw.hide-cube {
   margin-bottom: 1.5rem;
 }
 
-/* Buttons */
 .btn-featured {
   background: #e01e5a;
   border: none;
@@ -257,9 +272,8 @@ canvas#draw.hide-cube {
   color: #fff;
 }
 
-/* Section Headings */
 section h2 {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 #about{
@@ -270,29 +284,37 @@ section h2 {
   padding: 3rem 1rem;
   font-size: 1.3rem;
   line-height: 1.9;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
-
-.about-container,.education-container{
-  background-color: #111;
+.about-container, .education-container{
+  background-color: var(--bg-card);
   padding: 2rem;
   border-radius: 15px;
   flex: 1 1 400px;
   max-width: 600px;
+  color: var(--text-primary);
 }
+.education-container { /* Ensure this styling is distinct if needed */
+   /* currently inherits from .about-container if structure implies that */
+}
+
 .education-ladder {
   position: relative;
-  /* margin-left: 1.5rem; */
   padding-left: 2rem;
   border-left: 4px solid #e01e5a;
 }
+
 .edu-line {
   width: 4px;
   height: 30px;
   background: #e01e5a;
 }
+
 .edu-step {
-  background: #1c1c1c;
+  background: #1c1c1c; /* Will be overridden by var(--bg-card) in themes */
+  background: var(--bg-card);
   padding: 1.5rem;
   border-radius: 1rem;
   margin: 1rem 0;
@@ -303,24 +325,25 @@ section h2 {
 
 .edu-step:hover {
   transform: scale(1.05);
-  background-color: #1e1e1e;
+  background-color: #1e1e1e; /* consider using a slightly modified var(--bg-card) */
   box-shadow: 8px 8px 20px rgba(224, 30, 90, 0.6);
 }
 
 .projects-section {
   min-height: 100vh;
   background-color: #111;
-  color: white;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   padding: 4rem 2rem;
 }
 
 .projects-section .card {
-  background-color: #1c1c1c;
-  color: white;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
   border: none;
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Fixed: removed trailing comma */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .projects-section .card:hover {
@@ -332,10 +355,9 @@ section h2 {
   border-radius: 25px;
 }
 
-
 .coming-soon-message {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  height: 3em; /* Set initial height if you want a smooth transition */
+  height: 3em;
 }
 
 .coming-soon-message:hover {
@@ -349,66 +371,65 @@ section h2 {
 }
 
 #tech {
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  padding-top: 80px; 
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
   padding-bottom: 40px;
-
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
-/* --- Individual Tech Icon Styling --- */
+
 .tech-icon {
-  font-size: 2.5rem; 
-  padding: 15px;  
-  border-radius: 12px; 
-  background: rgba(255, 255, 255, 0.05); 
+  font-size: 2.5rem;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease; 
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
   cursor: pointer;
-  position: relative; 
-  margin: 10px; 
+  position: relative;
+  margin: 10px;
 }
 
 .tech-icon:hover {
   transform: translateY(-5px) scale(1.15);
-  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); 
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-.text-purple { color: #7952b3; }    
-.text-express { color: #68A063; }  
-.text-mongodb { color: #47A248; }   
-.text-npm { color: #cb3837; }       
-.text-terminal { color: #4D4D4D; }  
-.text-vscode { color: #007acc; }    
+.text-purple { color: #7952b3; }
+.text-npm { color: #cb3837; }
+.text-terminal { color: #4D4D4D; }
 
-.tech-icon:hover.fa-html5                 { color: #e34f26; } 
-.tech-icon:hover.fa-css3-alt              { color: #2965f1; } 
-.tech-icon:hover.fa-js                    { color: #f7df1e; } 
+.tech-icon:hover.fa-html5                 { color: #e34f26; }
+.tech-icon:hover.fa-css3-alt              { color: #2965f1; }
+.tech-icon:hover.fa-js                    { color: #f7df1e; }
 .tech-icon:hover.fa-bootstrap             { color: #7952b3; }
-.tech-icon:hover.fa-node                  { color: #68A063; } 
-.tech-icon:hover.fa-envira                { color: #47A248; } 
-.tech-icon:hover.fa-git-alt               { color: #f14e32; } 
-.tech-icon:hover.fa-github                { color: #6e5494; } 
-.tech-icon:hover.fa-npm                   { color: #cb3837; } 
-.tech-icon:hover.fa-terminal              { color: #bbbbbb; } 
-.tech-icon:hover.devicon-vscode-plain     { color: #007acc; } 
+.tech-icon:hover.fa-node                  { color: #68A063; }
+.tech-icon:hover.devicon-express-original { color: #000000; } /* Express is often black/grey */
+[data-theme="light"] .tech-icon:hover.devicon-express-original { color: #61DAFB; } /* Or a light mode specific color */
+.tech-icon:hover.devicon-mongodb-plain    { color: #47A248; }
+.tech-icon:hover.fa-git-alt               { color: #f14e32; }
+.tech-icon:hover.fa-github                { color: #6e5494; } /* Default color is white, hover is purplish */
+[data-theme="dark"] .fa-github.tech-icon  { color: #ffffff; } /* Ensure GitHub icon is white in dark mode */
+.tech-icon:hover.fa-npm                   { color: #cb3837; }
+.tech-icon:hover.fa-terminal              { color: #bbbbbb; }
+.tech-icon:hover.devicon-vscode-plain     { color: #007acc; }
 
-/* Footer */
+
 footer {
-  background-color: black;
+  background-color: black; /* Base, overridden by theme */
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
-/* Light Mode Theme Toggle Styles */
-
-/* Light Mode Styles */
 [data-theme="light"] {
-  background-color: #ffffff !important;
-  color: #333333 !important;
+  background-color: var(--bg-main-light) !important;
+  color: var(--text-primary-light) !important;
 }
 
-/* Navbar Light Mode */
 [data-theme="light"] .navbar-dark {
   background-color: #ffffff !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -423,7 +444,6 @@ footer {
   color: #e01e5a !important;
 }
 
-/* Hero Section Light Mode */
 [data-theme="light"] .hero {
   background-color: #ffffff !important;
   color: #333333 !important;
@@ -434,7 +454,6 @@ footer {
   color: #333333 !important;
 }
 
-/* About Section Light Mode */
 [data-theme="light"] #about {
   background-color: #f8f9fa !important;
   color: #333333 !important;
@@ -462,10 +481,8 @@ footer {
   border-left: 4px solid #e01e5a;
 }
 
-/* Projects Section Light Mode */
 [data-theme="light"] .projects-section {
   background-color: #ffffff !important;
-  color: #333333 !important;
 }
 
 [data-theme="light"] .projects-section h2 {
@@ -500,21 +517,14 @@ footer {
   box-shadow: 4px 4px 15px rgba(224, 30, 90, 0.3);
 }
 
-/* Tech Stack Light Mode */
 [data-theme="light"] #tech {
   background-color: #f8f9fa !important;
-  color: #333333 !important;
 }
 
 [data-theme="light"] #tech h2,
 [data-theme="light"] #tech h4 {
   color: #333333 !important;
 }
-
-/* [data-theme="light"] .tech-icon {
-  background: rgba(0, 0, 0, 0.05) !important;
-  color: #333333 !important;
-} */
 
 [data-theme="light"] .border-info {
   border-color: #17a2b8 !important;
@@ -528,48 +538,21 @@ footer {
   border-color: #ffc107 !important;
 }
 
-/* Contact Section Light Mode */
-[data-theme="light"] #contact {
-  background-color: #ffffff !important;
-  color: #333333 !important;
-}
-
-[data-theme="light"] #contact h2,
-[data-theme="light"] #contact p {
-  color: #333333 !important;
-}
-
-[data-theme="light"] #contact .text-primary {
-  color: #0d6efd !important;
-}
-
-[data-theme="light"] #contact .text-white {
-  color: #333333 !important;
-}
-
-[data-theme="light"] #contact .text-danger {
-  color: #dc3545 !important;
-}
-
-/* Footer Light Mode */
 [data-theme="light"] footer {
   background-color: #f8f9fa !important;
   color: #333333 !important;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Scroll Button Light Mode */
 [data-theme="light"] #scrollTopBtn {
   background-color: #e01e5a !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Section Headings Light Mode */
 [data-theme="light"] section h2 {
   color: #333333 !important;
 }
 
-/* Cube Overlay Light Mode */
 [data-theme="light"] #cube-overlay {
   background-color: #ffffff !important;
 }
@@ -582,7 +565,6 @@ footer {
   color: #666666 !important;
 }
 
-/* Smooth transitions for theme changes */
 body,
 .navbar-dark,
 .hero,
@@ -592,12 +574,10 @@ body,
 .projects-section,
 #tech,
 #contact,
-footer
-{
+footer {
   transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease !important;
 }
 
-/* Hero Canvas adjustment for light mode */
 [data-theme="light"] .hero-canvas {
   opacity: 0.8;
 }
@@ -605,54 +585,229 @@ footer
 @media (max-width: 955px){
   .btn-featured,
   .btn-contact {
-    padding: 0.9rem 0.9rem; 
-    font-size: 1rem;  
+    padding: 0.9rem 0.9rem;
+    font-size: 1rem;
     text-align: center;
-}
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem; /* Adds space between buttons */
-}
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 487px){
   .btn-featured,
   .btn-contact {
-    padding: 0.5rem 0.6rem; 
-    font-size: 0.9rem;  
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
     text-align: center;
+  }
+  .hero-title{
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .profile-frame {
+    width: 350px;
+    height: 350px;
+  }
+  .toggle-img {
+    width: 350px;
+    height: 350px;
+  }
 }
-.hero-title{
-  font-size: 2.5rem;
-}
-.hero-subtitle {
-  font-size: 1.3rem;
-}
-.button-container {
+/* Simplified Contact Section */
+#contact {
+  background-color: #111;
+  padding: 4rem 0;
+  min-height: 90vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1rem; /* Adds space between buttons */
 }
 
-.profile-frame {
-  width: 350px;
-  height: 350px;
+.contact-container {
+  max-width: 800px;
   margin: 0 auto;
-  padding: 5px;
-  background: linear-gradient(135deg, #e01e5a, #339cff);
-  border-radius: 20px;
 }
 
-/* Flip Animation Container */
-.toggle-img {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  perspective: 1000px;
-  cursor: pointer;
+.contact-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #fff;
 }
 
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* Social Links Container */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.social-card {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-card::before {
+  display: none;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: #fff;
+}
+
+.social-card.linkedin:hover {
+  border-color: #0077b5;
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.2);
+}
+
+.social-card.github:hover {
+  border-color: #6e5494;
+  box-shadow: 0 8px 25px rgba(110, 84, 148, 0.2);
+}
+
+.social-card.email:hover {
+  border-color: #dc3545;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-card .linkedin-icon { color: #0077b5; }
+.social-card .github-icon { color: #6e5494; }
+.social-card .email-icon { color: #dc3545; }
+
+.social-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.social-description {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+/* Simple CTA */
+.cta-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Light Mode Contact Section */
+[data-theme="light"] #contact {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+[data-theme="light"] .contact-title {
+  color: #333;
+}
+
+[data-theme="light"] .contact-subtitle,
+[data-theme="light"] .social-description,
+[data-theme="light"] .cta-text {
+  color: #666;
+}
+
+[data-theme="light"] .social-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .social-card:hover {
+  color: #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .social-links {
+    gap: 1.5rem;
+  }
+  
+  .social-card {
+    min-width: 180px;
+    padding: 1.5rem;
+  }
+  
+  .social-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .social-card {
+    width: 100%;
+    max-width: 300px;
+  }
 }

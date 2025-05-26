@@ -113,7 +113,7 @@ function scrambleCube() {
   shuffleSound.play();
   scrambleMoves = [];
   const axes = ['x', 'y', 'z'], idxs = [-spacing, 0, spacing];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     const axis = axes[Math.floor(Math.random() * 3)];
     const idx = idxs[Math.floor(Math.random() * 3)];
     const ang = Math.PI / 2 * (Math.random() < 0.5 ? 1 : -1);
