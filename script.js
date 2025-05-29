@@ -251,8 +251,8 @@ function initHeroCube() {
 
   const heroScene = new THREE.Scene();
   const heroCamera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
-  heroCamera.position.set(8, 9, 10);
-  heroCamera.lookAt(-3, 0, 0);
+  heroCamera.position.set(11, 9, 15);
+  heroCamera.lookAt(-20, 0, 0);
 
   const heroRenderer = new THREE.WebGLRenderer({ canvas: heroCanvas, antialias: true, alpha: true });
   heroRenderer.setSize(w, h);
