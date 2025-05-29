@@ -296,9 +296,6 @@ section h2 {
   max-width: 600px;
   color: var(--text-primary);
 }
-.education-container { /* Ensure this styling is distinct if needed */
-   /* currently inherits from .about-container if structure implies that */
-}
 
 .education-ladder {
   position: relative;
@@ -408,8 +405,7 @@ section h2 {
 .tech-icon:hover.fa-js                    { color: #f7df1e; }
 .tech-icon:hover.fa-bootstrap             { color: #7952b3; }
 .tech-icon:hover.fa-node                  { color: #68A063; }
-.tech-icon:hover.devicon-express-original { color: #000000; } /* Express is often black/grey */
-[data-theme="light"] .tech-icon:hover.devicon-express-original { color: #61DAFB; } /* Or a light mode specific color */
+.tech-icon:hover.devicon-express-original { color: #68A063; }/* Express is often black/grey but i think this looks good*/
 .tech-icon:hover.devicon-mongodb-plain    { color: #47A248; }
 .tech-icon:hover.fa-git-alt               { color: #f14e32; }
 .tech-icon:hover.fa-github                { color: #6e5494; } /* Default color is white, hover is purplish */
